@@ -12,7 +12,7 @@
 	}
 	</style>
 	<script>
-	function UserAction() {
+	function PostSparkMessage() {
     	var xhttp = new XMLHttpRequest();
     	xhttp.open("POST", "curl https://api.ciscospark.com/v1/messages -X POST -H "Authorization:Bearer ZTg1OWExYmYtODY1My00NjUxLTg5ZTQtZGQ2ZDM5MTM2ZjNkNmIzZGE5YmUtZDA3" --data "toPersonId=722bb271-d7ca-4bce-a9e3-471e4412fa77" --data "text=Hi%20Sparky"", false);
     	xhttp.setRequestHeader("Content-type", "application/json");
@@ -25,6 +25,6 @@
 	<img id="logo" src="logo_blue.png" alt="logo.png"/>
 	<h1><?php echo "Hello, World!!"; ?></h1>
 	
-	<button type="submit" value="Say Hi!" onclick="PostSparkMessage()">Search</button>
+	<button type="submit" onclick="PostSparkMessage()">Say Hi</button>
 </body>
 </html>
