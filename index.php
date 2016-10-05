@@ -11,12 +11,13 @@
 		font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 	}
 	</style>
-	<script>
+	<script type="text/javascript">
 	function PostSparkMessage() {
     	var xhttp = new XMLHttpRequest();
-    	xhttp.open("POST", "https://api.ciscospark.com/v1/messages -X POST -H "Authorization:Bearer ZTg1OWExYmYtODY1My00NjUxLTg5ZTQtZGQ2ZDM5MTM2ZjNkNmIzZGE5YmUtZDA3" --data "toPersonId=722bb271-d7ca-4bce-a9e3-471e4412fa77" --data "text=Hi%20Sparky"", false);
+    	xhttp.open("POST", "https://api.ciscospark.com/v1/messages --data "" --data "text=Hi%20Sparky"", false);
     	xhttp.setRequestHeader("Content-type", "application/json");
-    	xhttp.send();
+	xhttp.setRequestHeader("Authorization", "Bearer ZTg1OWExYmYtODY1My00NjUxLTg5ZTQtZGQ2ZDM5MTM2ZjNkNmIzZGE5YmUtZDA3");
+    	xhttp.send("toPersonId=722bb271-d7ca-4bce-a9e3-471e4412fa77&text=Hi");
 	var response = JSON.parse(xhttp.responseText);
 	}
 	</script>
