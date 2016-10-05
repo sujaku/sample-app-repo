@@ -13,13 +13,13 @@
 	</style>
 	<script type="text/javascript">
 	function PostSparkMessage() {
-		alert("inside PostSparkMessage");
-    	var xhttp = new XMLHttpRequest();
-    	xhttp.open("POST", "https://api.ciscospark.com/v1/messages", false);
-    	xhttp.setRequestHeader("Content-type", "application/json");
-	xhttp.setRequestHeader("Authorization", "Bearer ZTg1OWExYmYtODY1My00NjUxLTg5ZTQtZGQ2ZDM5MTM2ZjNkNmIzZGE5YmUtZDA3");    	
-	xhttp.send("{\"text\":\"HI\",\"toPersonId\":\"722bb271-d7ca-4bce-a9e3-471e4412fa77\"}");
-	var response = JSON.parse(xhttp.responseText);
+    		var xhttp = new XMLHttpRequest();
+    		xhttp.open("POST", "https://api.ciscospark.com/v1/messages", false);
+    		xhttp.setRequestHeader("Content-type", "application/json");
+		xhttp.setRequestHeader("Authorization", "Bearer ZTg1OWExYmYtODY1My00NjUxLTg5ZTQtZGQ2ZDM5MTM2ZjNkNmIzZGE5YmUtZDA3");    	
+		xhttp.send("{\"text\":\"HI\",\"toPersonId\":\"722bb271-d7ca-4bce-a9e3-471e4412fa77\"}");
+		var response = JSON.parse(xhttp.responseText);
+		document.getElementById("SendMsgResp").innerHtml=xhttp.responseText;
 	}
 	</script>
 </head>
@@ -28,5 +28,8 @@
 	<h1><?php echo "Hello, World!!"; ?></h1>
 	
 	<button type="submit" onclick="PostSparkMessage()">Say Hi</button>
+	<p id="SendMsgResp">
+		Waiting for Response!
+	</p>
 </body>
 </html>
