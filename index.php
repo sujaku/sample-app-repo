@@ -19,7 +19,8 @@
 		xhttp.setRequestHeader("Authorization", "Bearer ZTg1OWExYmYtODY1My00NjUxLTg5ZTQtZGQ2ZDM5MTM2ZjNkNmIzZGE5YmUtZDA3");    	
 		xhttp.send("{\"text\":\"HI\",\"toPersonId\":\"722bb271-d7ca-4bce-a9e3-471e4412fa77\"}");
 		var response = JSON.parse(xhttp.responseText);
-		document.getElementById("SendMsgResp").innerHtml=xhttp.responseText;
+		document.getElementById("SendMsgResp").innerHtml=JSON.stringify(response);
+		document.getElementById("t").innerHtml="Test Changed by JS";
 	}
 	</script>
 </head>
@@ -30,6 +31,9 @@
 	<button type="submit" onclick="PostSparkMessage()">Say Hi</button>
 	<p id="SendMsgResp">
 		Waiting for Response!
+	</p>
+	<p id="t">
+		Testing JS
 	</p>
 </body>
 </html>
