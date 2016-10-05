@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Hello, world!</title>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
-	<style type="text/css">
-	body {
-		background-color: white;
-		text-align: center;
-		padding: 50px;
-		font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-	}
-	</style>
-	<script type="text/javascript">
-	function PostSparkMessage() {
-    		var xhttp = new XMLHttpRequest();
-    		xhttp.open("POST", "https://api.ciscospark.com/v1/messages", false);
-    		xhttp.setRequestHeader("Content-type", "application/json");
-		xhttp.setRequestHeader("Authorization", "Bearer ZTg1OWExYmYtODY1My00NjUxLTg5ZTQtZGQ2ZDM5MTM2ZjNkNmIzZGE5YmUtZDA3");    	
-		xhttp.send("{\"text\":\"HI\",\"toPersonId\":\"722bb271-d7ca-4bce-a9e3-471e4412fa77\"}");
-		var response = JSON.parse(xhttp.responseText);
-		document.getElementById("SendMsgResp").innerHtml=JSON.stringify(response);
-		document.getElementById("t").innerHtml="Test Changed by JS";
-	}
-	</script>
+ <title>Hello, world!</title>
+ <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+ <style type="text/css">
+ body {
+  background-color: white;
+  text-align: center;
+  padding: 50px;
+  font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+ }
+ </style>
+ <script type="text/javascript">
+ function PostSparkMessage() {
+      var email = document.getElementById("email").value;
+      var message = document.getElementById("message").value;
+      var authKey = document.getElementById("authkey").value;
+      var xhttp = new XMLHttpRequest();
+      xhttp.open("POST", "https://api.ciscospark.com/v1/messages", false);
+      xhttp.setRequestHeader("Content-type", "application/json");
+  xhttp.setRequestHeader("Authorization", "Bearer " + authKey);     
+  xhttp.send("{\"text\":\"HI\",\"toPersonEmail\":\"" + email + "\"}");
+  var response = JSON.parse(xhttp.responseText);
+  document.getElementById("SendMsgResp").innerHTML=JSON.stringify(response);
+ }
+
+function fun(){
+    document.getElementById("t").innerHTML = "hello";
+}
+ </script>
 </head>
 <body>
-	<img id="logo" src="logo_blue.png" alt="logo.png"/>
-	<h1><?php echo "Hello, World!!"; ?></h1>
-	
-	<button type="submit" onclick="PostSparkMessage()">Say Hi</button>
-	<p id="SendMsgResp">
-		Waiting for Response!
-	</p>
-	<p id="t">
-		Testing JS
-	</p>
+ <img id="logo" src="logo_blue.png" alt="logo.png"/>
+ <h1><?php echo "Spark your friend from Here"; ?></h1>
+Your authorisation key: <input type="text" id="authkey" placeholder="ZTg1OWExYmYtODY1My00NjUxLTg5ZTQtZGQ2ZDM5MTM2ZjNkNmIzZGE5YmUtZDA3"></input><br>
+Your Friend's Email: <input type="email" id="email" placeholder="adivesh@cisco.com"></input><br>
+Your message: <input type="text" id="message" placeholder="Hello Anupam"></input><br>
+ <button type="submit" onclick="PostSparkMessage()">Say Hi</button>
+ <p id="SendMsgResp">
+  Waiting for Response!
+ </p>
 </body>
 </html>
