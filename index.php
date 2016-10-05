@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
- <title>Hello, world!</title>
+ <title>Spark API demo</title>
  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
  <style type="text/css">
  body {
@@ -20,7 +20,7 @@
       xhttp.open("POST", "https://api.ciscospark.com/v1/messages", false);
       xhttp.setRequestHeader("Content-type", "application/json");
   xhttp.setRequestHeader("Authorization", "Bearer " + authKey);     
-  xhttp.send("{\"text\":\"HI\",\"toPersonEmail\":\"" + email + "\"}");
+  xhttp.send("{\"text\":\"" + message + "\",\"toPersonEmail\":\"" + email + "\"}");
   var response = JSON.parse(xhttp.responseText);
   document.getElementById("SendMsgResp").innerHTML=JSON.stringify(response);
  }
@@ -36,7 +36,7 @@ function fun(){
 Your authorisation key: <input type="text" id="authkey" placeholder="ZTg1OWExYmYtODY1My00NjUxLTg5ZTQtZGQ2ZDM5MTM2ZjNkNmIzZGE5YmUtZDA3"></input><br>
 Your Friend's Email: <input type="email" id="email" placeholder="adivesh@cisco.com"></input><br>
 Your message: <input type="text" id="message" placeholder="Hello Anupam"></input><br>
- <button type="submit" onclick="PostSparkMessage()">Say Hi</button>
+ <button type="submit" onclick="PostSparkMessage()">Send</button>
  <p id="SendMsgResp">
   Waiting for Response!
  </p>
